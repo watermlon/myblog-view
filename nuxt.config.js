@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 module.exports = {
   /*
   ** Headers of the page
@@ -10,9 +11,16 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel:'stylesheet',href:'/normalize.css'}
     ]
   },
+  css:[
+    { src: 'iview/dist/styles/iview.css'}
+  ],
+  plugins: [
+    { src: '~/plugins/iview.js', ssr: false }
+  ],
   /*
   ** Customize the progress bar color
   */
@@ -21,18 +29,21 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor:['~/plugins/iview.js'],
     /*
     ** Run ESLint on save
     */
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
+    // extend (config, { isDev, isClient }) {
+    //   const vueLoader = webpackConfig.module.rules.find((rule) => rule.loader === 'vue-loader') 
+    //   vueLoader.options.loaders.less = 'vue-style-loader!css-loader!less-loader'
+    //   // if (isDev && isClient) {
+    //   //   config.module.rules.push({
+    //   //     enforce: 'pre',
+    //   //     test: /\.(js|vue)$/,
+    //   //     loader: 'eslint-loader',
+    //   //     exclude: /(node_modules)/
+    //   //   })
+    //   // }
+    // }
   }
 }
