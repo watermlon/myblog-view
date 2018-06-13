@@ -20,25 +20,28 @@ axios.interceptors.request.use((res) => {
  * axios全局配置响应拦截
  */
 axios.interceptors.response.use((req) => {
-  if (req.status == 200) {
-    switch (req.data.status) {
-      case 200:
-        return req.data;
-        break
-      case 401:
-        vm.$router.push('/login')
-        return Promise.reject(req.data.msg);
-        break
-      case 500:
-        vm.$router.push('/error500')
-        return Promise.reject(req.data.msg);
-        break
-      default:
-        return req.data;
-        break
-    }
-  }
+  return req
+  // console.log(req)
+  // if (req.status == 200) {
+  //   switch (req.data.code) {
+  //     case 200:
+  //       return req.data;
+  //       break
+  //     case 401:
+  //       vm.$router.push('/login')
+  //       return Promise.reject(req.data.msg);
+  //       break
+  //     case 500:
+  //       vm.$router.push('/error500')
+  //       return Promise.reject(req.data.msg);
+  //       break
+  //     default:
+  //       return req.data;
+  //       break
+  //   }
+  // }
 }, error => {
+  console.log(error)
   // this.$Message.error('服务器错误')
 });
 Vue.prototype.$http = axios;

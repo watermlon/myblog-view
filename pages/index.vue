@@ -2,15 +2,13 @@
   <section class="container">
       <Row>
           <Col span="16">
-              <Card style="margin-bottom:10px;">
-                  <h1>内容标题</h1>
+              <Card style="margin-bottom:10px;" v-for="item in article" :key="item._id">
+                  <h1>{{item.title}}</h1>
                   
-                  <p>摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要摘要</p>
-              </Card>
-              <Card>
+                  <p>{{item.content}}</p>
               </Card>
           </Col>
-          <Col span="6" offset='2'>
+          <Col span="7" offset='1'>
               <Card>
               </Card>
           </Col>
@@ -19,8 +17,27 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+    data(){
+        return {
+            msg:'hello'
+        }
+    },
+    async asyncData(){
+        let {data} =await axios.get('/article/list',{pageNo:1,pageSize:10})
+        return {
+            article:data
+        }
+    },
+    // data(){
+    //     return {
 
+    //     }
+    // },
+    methods:{
+
+    }
 }
 </script>
 

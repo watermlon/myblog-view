@@ -19,7 +19,7 @@ module.exports = {
     { src: 'iview/dist/styles/iview.css'}
   ],
   plugins: [
-    { src: '~/plugins/iview.js', ssr: false },
+    { src: '~/plugins/iview.js' },
     { src:'~/plugins/axios.js'}
   ],
   /*
