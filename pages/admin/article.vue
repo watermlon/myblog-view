@@ -11,7 +11,7 @@
                             <Input v-model="formLeft.desc"></Input>
                         </FormItem>
                         <FormItem label="内容">
-                            <Input v-model="formLeft.content"></Input>
+                            <mavon-editor></mavon-editor>
                         </FormItem>
                         <FormItem label="分类">
                             <Input v-model="formLeft.category"></Input>
@@ -26,6 +26,7 @@
     </div>
 </template>
 <script>
+  import mavonEditor from 'mavon-editor'
 export default {
     layout:'empty',
     data(){
@@ -37,6 +38,9 @@ export default {
                 category:''
             }
         }
+    },
+    components:{
+        mavonEditor
     },
     methods:{
         save(){

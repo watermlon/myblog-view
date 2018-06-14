@@ -5,7 +5,7 @@ import axios from 'axios'
  */
 axios.defaults.timeout = 100000;
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8';
-axios.defaults.baseURL = 'http://127.0.0.1'; //本地服务器接口
+axios.defaults.baseURL = 'http://127.0.0.1:8022'; //本地服务器接口
 axios.defaults.withCredentials = true;
 
 

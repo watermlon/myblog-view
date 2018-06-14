@@ -20,7 +20,8 @@ module.exports = {
   ],
   plugins: [
     { src: '~/plugins/iview.js' },
-    { src:'~/plugins/axios.js'}
+    { src:'~/plugins/axios.js'},
+    { src :'~/plugins/markEdit.js' ,ssr:false}
   ],
   /*
   ** Customize the progress bar color
@@ -30,7 +31,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor:['~/plugins/iview.js','~/plugins/axios.js'],
+    vendor:['~/plugins/iview.js','~/plugins/axios.js','~/plugins/markEdit.js'],
     /*
     ** Run ESLint on save
     */
