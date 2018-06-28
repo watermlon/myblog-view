@@ -16,7 +16,9 @@ module.exports = {
     ]
   },
   css:[
-    { src: 'iview/dist/styles/iview.css'}
+    { src: 'iview/dist/styles/iview.css'},
+    { src: 'mavon-editor/dist/css/index.css'},
+    { src :'mavon-editor/dist/markdown/github-markdown.min.css'}
   ],
   plugins: [
     { src: '~/plugins/iview.js' },

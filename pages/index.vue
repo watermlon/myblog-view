@@ -1,17 +1,17 @@
 <template>
   <section class="container">
       <Row>
-          <Col span="16">
-              <Card style="margin-bottom:10px;" v-for="item in article" :key="item._id">
+          <Col span="24">
+              <Card style="margin-bottom:10px;" v-for="item in article" :key="item._id" @click.native="show(item._id)">
                   <h1>{{item.title}}</h1>
                   
-                  <p>{{item.content}}</p>
+                  <p class="markdown-body" v-html="item.content" ></p>
               </Card>
           </Col>
-          <Col span="7" offset='1'>
+          <!-- <Col span="7" offset='1'>
               <Card>
               </Card>
-          </Col>
+          </Col> -->
       </Row>
   </section>
 </template>
@@ -26,6 +26,7 @@ export default {
     },
     async asyncData(){
         let {data} =await axios.get('/article/list',{pageNo:1,pageSize:10})
+        console.log(data)
         return {
             article:data
         }
@@ -36,7 +37,12 @@ export default {
     //     }
     // },
     methods:{
-
+        show(id){
+            this.$router.push({
+                path:'/detail',
+                query:{id}
+            })
+        }
     }
 }
 </script>

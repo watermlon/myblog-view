@@ -11,7 +11,7 @@
                             <Input v-model="formLeft.desc"></Input>
                         </FormItem>
                         <FormItem label="内容">
-                            <mavon-editor></mavon-editor>
+                            <mavon-editor @change='valChange'></mavon-editor>
                         </FormItem>
                         <FormItem label="分类">
                             <Input v-model="formLeft.category"></Input>
@@ -26,33 +26,42 @@
     </div>
 </template>
 <script>
-  import mavonEditor from 'mavon-editor'
-export default {
-    layout:'empty',
-    data(){
-        return {
-            formLeft:{
-                title:'',
-                desc:'',
-                content:'',
-                category:''
-            }
-        }
-    },
-    components:{
-        mavonEditor
-    },
-    methods:{
-        save(){
-            this.$http.post('/article/publish',this.formLeft).then(res=>{
-                if(res.code==201){
-                    this.$Message.success('保存成功')
-                }
-            })
-        }
-    }
-    
+let mavonEditor;
+if (process.browser) {
+    console.log('browser')
+  mavonEditor = require("mavon-editor");
 }
+//   import mavonEditor from 'mavon-editor'
+export default {
+  layout: "empty",
+  data() {
+    return {
+      formLeft: {
+        title: "",
+        desc: "",
+        content: "",
+        category: ""
+      }
+    };
+  },
+//   components:{
+//       mavonEditor
+//   },
+  methods: {
+    save() {
+        console.log(this.formLeft.content)
+      this.$http.post("/article/publish", this.formLeft).then(res => {
+        if (res.code == 201) {
+          this.$Message.success("保存成功");
+        }
+      });
+    },
+    valChange(val,render){
+        this.formLeft.content = render
+        console.log(val,render)
+    }
+  }
+};
 </script>
 <style lang="less">
 </style>
