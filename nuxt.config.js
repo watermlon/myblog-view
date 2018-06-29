@@ -12,18 +12,21 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel:'stylesheet',href:'/normalize.css'}
+      { rel: 'stylesheet', href: '/normalize.css' }
     ]
   },
-  css:[
-    { src: 'iview/dist/styles/iview.css'},
-    { src: 'mavon-editor/dist/css/index.css'},
-    { src :'mavon-editor/dist/markdown/github-markdown.min.css'}
+  css: [
+    { src: 'iview/dist/styles/iview.css' },
+    { src: 'mavon-editor/dist/css/index.css' },
+    { src: 'mavon-editor/dist/markdown/github-markdown.min.css' }
   ],
+  // "scripts": {
+  //   "dev": "HOST=127.0.0.1 PORT=3333 nuxt"
+  // },
   plugins: [
     { src: '~/plugins/iview.js' },
-    { src:'~/plugins/axios.js'},
-    { src :'~/plugins/markEdit.js' ,ssr:false}
+    { src: '~/plugins/axios.js' },
+    { src: '~/plugins/markEdit.js', ssr: false }
   ],
   /*
   ** Customize the progress bar color
@@ -33,7 +36,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor:['~/plugins/iview.js','~/plugins/axios.js','~/plugins/markEdit.js'],
+    vendor: ['~/plugins/iview.js', '~/plugins/axios.js', '~/plugins/markEdit.js'],
     /*
     ** Run ESLint on save
     */
