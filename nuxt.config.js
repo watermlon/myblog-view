@@ -26,7 +26,8 @@ module.exports = {
   plugins: [
     { src: '~/plugins/iview.js' },
     { src: '~/plugins/axios.js' },
-    { src: '~/plugins/markEdit.js', ssr: false }
+    { src: '~/plugins/markEdit.js', ssr: false },
+    { src: '~/plugins/highlight.js', ssr: false }
   ],
   /*
   ** Customize the progress bar color

@@ -45,6 +45,7 @@
       <!-- </div> -->
     </div>
     <nuxt class="layout-box"/>
+    <p class="copyRight">鲁ICP备17035182号-1</p>
   </div>
 </template>
 <script>
@@ -90,6 +91,15 @@ export default {
   }
 }
 body {
+  .layout-box{
+  min-height: calc(100vh - 20px);
+  }
+  .hljs {
+    background-color: transparent!important;
+  }
+  .copyRight{
+    text-align: center;
+  }
   min-height: 100vh;
   background-color: #f4f5f5;
   .layout-box {
