@@ -45,7 +45,7 @@
       <!-- </div> -->
     </div>
     <nuxt class="layout-box"/>
-    <p class="copyRight">鲁ICP备17035182号-1</p>
+    <p class="copyRight">鲁ICP备17035182号</p>
   </div>
 </template>
 <script>
